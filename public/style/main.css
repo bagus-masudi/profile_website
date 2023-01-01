@@ -1,0 +1,138 @@
+* {
+    list-style: none;
+    text-decoration: none;
+  }
+  
+  body {
+    font-family: "Ubuntu", serif;
+    background-color: #e2e8f0; 
+  }
+  .modal-login {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+  }
+  .modal-login .wrapper {
+    border-radius: 15px;
+    width: 400px;
+  }
+  .modal-login .wrapper h4 {
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 24px;
+  }
+  .modal-login .wrapper form {
+    margin-top: 10px;
+  }
+  .modal-login .wrapper form .mb-3 {
+    font-family: "Roboto";
+  }
+  .modal-login .wrapper form .mb-3 label {
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .modal-login .wrapper form .mb-3 input {
+    border: 1px solid #4e73df;
+    border-radius: 5px;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .modal-login .wrapper form .d-grid {
+    background-color: #4e73df;
+    border-radius: 5px;
+    font-family: "Montserrat";
+  }
+  .modal-login .show-hide {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 80%;
+    left: 88%;
+  }
+  .modal-login .show-hide i{
+    cursor: pointer;
+    font-size: 22px;
+    color: black;
+  }
+
+  /* btn-signin/signup */
+  .btn-switch {
+    font-size: 30px;
+  }
+  .btn-switch .btn{
+    font-size: 18px;
+  }
+
+  
+    /* Profile Page */
+    .profile {
+        display: flex;
+        gap: 80px;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+    }
+    .btn-edit {
+        display: flex;
+        justify-content: center;
+        margin-top: 35px;
+    }
+    .btn-edit button{
+        font-size: 25px;
+        padding: 10px 30px;
+    }
+    .modal-profile{
+        text-align: center;
+    }
+    .modal-profile .wrapper{
+        border-radius: 15px;
+        height: 400px;
+        width: 400px;
+        /* left: 31%;
+        transform: translate(-50%, -62%);  */
+        font-size: 23px;
+    }
+
+
+    /* Biodata */
+    .modal-biodata .wrapper {
+        border-radius: 15px;
+        height: 500px;
+        /* left: 66%;
+        transform: translate(-50%, -50%); */
+        font-size: 23px;
+    }
+    .modal-biodata .wrapper p{
+        margin: 0;
+    }
+  
+  @media screen and (max-width: 1000px) {
+    .profile {
+        gap: 20px;
+    }
+  }
+
+  @media screen and (max-width: 850px) {
+    .profile {
+        margin-top: 200px;
+        margin-bottom: 100px;
+        flex-wrap: wrap;
+    }
+    .modal-profile {
+        margin-left: 100px;
+    }
+    .modal-biodata {
+        margin-top: 15px;
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    .modal-profile {
+        
+    }
+    .modal-biodata .wrapper{
+        font-size: 17px;
+    }
+  }
