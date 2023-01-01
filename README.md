@@ -23,27 +23,25 @@
 
 4. Set your database configuration in .env files
 
-5. Create Database MySQL 
-
-6. Generate APP_KEY
+5. Generate APP_KEY
 
     ```bash
     php artisan key:generate
     ```
 
-7. Run Migration
+6. Run Migration
 
     ```bash
     php artisan migrate
     ```
 
-8. To make uploaded files accessible from the web, you should create a symbolic link from public/storage to storage/app/public.
+7. To make uploaded files accessible from the web, you should create a symbolic link from public/storage to storage/app/public.
 
     ```bash
     php artisan storage:link
     ```
 
-9. Run Laravel server
+8. Run Laravel server
 
     ```bash
     php artisan serve
