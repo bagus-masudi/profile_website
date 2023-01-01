@@ -1,4 +1,4 @@
-# Project Resepku Laravel
+# Project Profile Website Laravel
 
 ## Usage
 - Prerequisites
