@@ -136,3 +136,12 @@
         font-size: 17px;
     }
   }
+
+  @media screen and (max-width: 500px) {
+    .profile{
+      align-items: center;
+    }
+    .modal-biodata .wrapper {
+      transform: translate(11%, 0%);
+    }
+  }
