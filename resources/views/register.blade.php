@@ -7,7 +7,7 @@
                 <div class="col-6">
                     <a class="btn" href="{{route('login')}}">Sign In</a>
                 </div>
-                <p style="opacity: 60%;">|</p>
+                <p style="opacity: 40%;">|</p>
                 <div class="col-6">
                     <a class="btn fw-bold" >Sign Up</a>
                 </div>

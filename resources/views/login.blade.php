@@ -7,7 +7,7 @@
             <div class="col-6">
                 <a class="btn fw-bold">Sign In</a>
             </div>
-            <p style="opacity: 60%;">|</p>
+            <p style="opacity: 40%;">|</p>
             <div class="col-6">
                 <a class="btn" href="{{route('register')}}">Sign Up</a>
             </div>
@@ -28,12 +28,12 @@
                 <input type="password" id="password" name="password" class="form-control"  required/>
             </div>
             <div class="d-grid pt-1 pb-1 mt-4 fs-1">
-            <button type="submit" class="btn text-light fs-5">Login</button>
-            @if ($error['error'] == 'error')
-                <span class="show-hide" style="margin-top: -34px" id="show-hide"><i class="bi bi-eye-slash" aria-hidden="true"></i></span>
-            @else
-                <span class="show-hide" style="margin-top: -42px" id="show-hide"><i class="bi bi-eye-slash" aria-hidden="true"></i></span>
-            @endif
+                <button type="submit" class="btn text-light fs-5">Login</button>
+                @if ($error['error'] == 'error')
+                    <span class="show-hide" style="margin-top: -33px" id="show-hide"><i class="bi bi-eye-slash" aria-hidden="true"></i></span>
+                @else
+                    <span class="show-hide" style="margin-top: -41px" id="show-hide"><i class="bi bi-eye-slash" aria-hidden="true"></i></span>
+                @endif
             </div>
         </form>
     </div>

@@ -7,66 +7,87 @@
     <div class="profile">
         <div class="left">
             <div class="modal-profile">
-                <div class="wrapper shadow bg-light p-4 text-center">
-                    <div class="">
-                        @if ($users->photo != null) 
-                            <img class="rounded-circle" src="{{asset('images/photo')}}/{{$users->photo}}" alt="#" style="width: 240px; height: 240px;">
-                        @else 
-                            <img class="rounded-circle" src="{{asset('images/photo/User.png')}}" alt="#" style="width: 240px; height: 240px;">
-                        @endif
-                    </div>
-                    <div class="text-center mt-3">
-                        <h3 class="fw-bold" style="">{{$users->name}}</h3>
-                        <h3 class="mt-3 text-secondary">{{$users->pekerjaan}}</h3>
+                <div class="wrapper shadow p-4 text-center">
+                    <div class="profile-img"><img alt="" src="{{asset('images/photo/photo.jpg')}}"></div>
+                    <h2>{{$users->name}}</h2>
+                    <p>{{$users->pekerjaan}}</p>
+                    <div class="socials">
+                        <div class="a1">
+                            <img src="{{asset('images/icons/facebook-f.png')}}" style="width: 16px" aria-placeholder="ssfv" alt="">
+                        </div>
+                        <div class="a2">
+                            <img src="{{asset('images/icons/linkedin-in.png')}}" style="width: 19px;" alt="">
+                        </div>
+                        <div class="a3">
+                            <img src="{{asset('images/icons/github-alt.png')}}" style="width: 20px;" alt="">
+                        </div>
+                        <div class="a4">
+                            <img src="{{asset('images/icons/google-plus-g.png')}}" style="width: 27px;" alt="">
+                        </div>
                     </div>
                 </div>
-                <div class="btn-edit">
-                    <button type="button" class="btn btn-primary ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-pencil"></i></button>
-                    <form action="{{ route('delete') }}" method="POST">
-                        @csrf
-                        <button type="submit" class="btn btn-danger ms-3"><i class="bi bi-trash"></i></button>
-                    </form>
-                    <form action="{{ route('logout') }}" method="POST">
-                        @csrf
-                        <button type="submit" class="btn btn-secondary ms-3"><i class="bi bi-box-arrow-in-right"></i></button>
-                    </form>
-                </div>
+            </div>
+            <div class="btn-edit">
+                <button type="button" class="btn btn-primary ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-pencil"></i></button>
+                <form action="{{ route('delete') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-danger ms-3"><i class="bi bi-trash"></i></button>
+                </form>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-secondary ms-3"><i class="bi bi-box-arrow-in-right"></i></button>
+                </form>
             </div>
         </div>
         <div class="right">
             <div class="modal-biodata">
-                <div class="wrapper shadow bg-light p-4 text-center">
-                    <div class="text-start">
+                <div class="wrapper shadow text-center">
+                    <div class="text-start" style="color: #ffffffdb">
                         <div class="d-flex gap-5 mt-1">
-                            <p class="fw-bold">Nama</p>
-                            <p class="text-secondary" style="margin-left: 79px;">{{$users->name}}</p>
+                            <h2 class="col-3" style="font-size: 23px">Nama</h2>
+                            <p>{{$users->name}}</p>
                         </div>
                         <hr>
                         <div class="d-flex gap-5" style="margin-top: 27px;">
-                            <p class="fw-bold">Username</p>
-                            <p class="text-secondary" style="margin-left: 41px;">{{$users->username}}</p>
+                            <h2 class="col-3" style="font-size: 23px">Username</h2>
+                            <p>{{$users->username}}</p>
                         </div>
                         <hr>
                         <div class="d-flex gap-5" style="margin-top: 27px;">
-                            <p class="fw-bold">No. Hp</p>
-                            <p class="text-secondary"  style="margin-left: 70px;">{{$users->no_hp}}</p>
+                            <h2 class="col-3" style="font-size: 23px">No. Hp</h2>
+                            <p>{{$users->no_hp}}</p>
                         </div>
                         <hr>
                         <div class="d-flex gap-5" style="margin-top: 27px;">
-                            <p class="fw-bold">Alamat</p>
-                            <p class="text-secondary" style="margin-left: 68px;">{{$users->alamat}}</p>
+                            <h2 class="col-3" style="font-size: 23px">Alamat</h2>
+                            <p>{{$users->alamat}}</p>
                         </div>
                         <hr>
                         <div class="d-flex gap-5" style="margin-top: 27px;">
-                            <p class="fw-bold">Email</p>
-                            <p class="text-secondary" style="margin-left: 83px;">{{$users->email}}</p>
+                            <h2 class="col-3" style="font-size: 23px">Email</h2>
+                            <p>{{$users->email}}</p>
                         </div>
                         <hr>
                         <div class="d-flex gap-5" style="margin-top: 27px;">
-                            <p class="fw-bold">Tanggal Lahir</p>
-                            <p class="text-secondary">{{$users->tgl_lhr}}</p>
+                            <h2 class="col-3" style="font-size: 23px">Tanggal Lahir</h2>
+                            <p ><?php
+                                $date=date_create($users->tgl_lhr);
+                                echo date_format($date,"d M Y");
+                                ?></p>
                         </div>
                         <hr>
+                        <div class="text-end">
+                            <a class="text-warning animate" style="text-decoration: none" href="#">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-about">
+                <div class="wrapper shadow">
+                    <div class="text-start" style="color: #ffffffdb">
+                        <h2 class="text-center mb-4">Tentang Saya</h2>
+                        <p style="height:400px">Saya adalah entusias teknologi</p>
+                        <a class="text-warning animate" style="text-decoration: none; margin-top: 1" href="#">Back</a>
                     </div>
                 </div>
             </div>
@@ -126,4 +147,13 @@
         </div>
     </div>
 </div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+<script>
+$(document).ready(function(){
+	$('.animate').click(function(){
+	$('.right').toggleClass('animated');
+	return false;
+    });
+});
+</script>
 @endsection

@@ -4,10 +4,10 @@
   }
   
   body {
-    font-family: "Ubuntu", serif;
-    background-color: #e2e8f0; 
+    font-family: 'Poppins';
   }
   .modal-login {
+    z-index: 100;
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
@@ -15,34 +15,34 @@
   }
   .modal-login .wrapper {
     border-radius: 15px;
-    width: 400px;
+    width: 450px;
+    flex-direction: column;
+    background: #ffffff1a;
+    padding: 1.5em 3em;
+    border: 2px solid #ffffff30;
+    box-shadow: 0 0 30px #0000002a;
   }
   .modal-login .wrapper h4 {
-    font-family: "Montserrat";
     font-weight: 600;
-    font-size: 24px;
+    font-size: 27px;
   }
   .modal-login .wrapper form {
-    margin-top: 10px;
-  }
-  .modal-login .wrapper form .mb-3 {
-    font-family: "Roboto";
+    margin-top: 12px;
   }
   .modal-login .wrapper form .mb-3 label {
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 17px;
+    font-weight: 500;
   }
   .modal-login .wrapper form .mb-3 input {
     border: 1px solid #4e73df;
     border-radius: 5px;
     height: 40px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
   }
   .modal-login .wrapper form .d-grid {
     background-color: #4e73df;
     border-radius: 5px;
-    font-family: "Montserrat";
   }
   .modal-login .show-hide {
     position: absolute;
@@ -52,7 +52,7 @@
   }
   .modal-login .show-hide i{
     cursor: pointer;
-    font-size: 22px;
+    font-size: 26px;
     color: black;
   }
 
@@ -61,52 +61,142 @@
     font-size: 30px;
   }
   .btn-switch .btn{
-    font-size: 18px;
+    font-size: 20px;
   }
 
   
-    /* Profile Page */
-    .profile {
-        display: flex;
-        gap: 80px;
-        position: absolute;
-        transform: translate(-50%, -50%);
-        top: 50%;
-        left: 50%;
-    }
-    .btn-edit {
-        display: flex;
-        justify-content: center;
-        margin-top: 35px;
-    }
-    .btn-edit button{
-        font-size: 25px;
-        padding: 10px 30px;
-    }
-    .modal-profile{
-        text-align: center;
-    }
-    .modal-profile .wrapper{
-        border-radius: 15px;
-        height: 400px;
-        width: 400px;
-        /* left: 31%;
-        transform: translate(-50%, -62%);  */
-        font-size: 23px;
-    }
+  /* Profile Page */
+  .profile {
+    z-index: 100;
+    display: flex;
+    gap: 80px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 34%;
+  }
+  .btn-edit {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+  }
+  .btn-edit button{
+    font-size: 25px;
+    padding: 10px 30px;
+  }
+  .modal-profile{
+    text-align: center;
+  }
+  .modal-profile .wrapper{
+    width: 450px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff1a;
+    padding: 1.5em;
+    border-radius: 25px;
+    border: 2px solid #ffffff30;
+    box-shadow: 0 0 30px #0000002a;
+    text-align: center;
+  }
+  .modal-profile h2 {
+    font-size: 30px;
+    color: #ffffffb8;
+    text-transform: capitalize;
+    margin: 0;
+    margin-top: 15px;
+  }
+  .modal-profile p {
+    color: #ffffffc8;
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 24px;
+  }
+  .btn-area a {
+    text-decoration: none;
+    color: #262626;
+    background: rgba(255, 255, 255, 0.6);
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 15px 5px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+  }
+  .btn-area a.ex {
+    background: transparent;
+    color: #fff;
+  }
+  .socials {
+    margin-top: 20px;
+    display: flex;
+  }
+  .socials div {
+    z-index: 100;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    line-height: 45px;
+    color: rgb(2, 0, 0);
+    margin: 0 5px;
+  }
+  .socials div.a1 {
+    background: #3b5998;
+  }
+  .socials div.a2 {
+    background: #3871c1;
+  }
+  .socials div.a3 {
+    background: #000000;
+  }
+  .socials div.a4 {
+    background: #dc4e41;
+  }
+  .profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    object-fit: cover;
+  }
+  .profile-img img {
+    width: 100%;
+  }
 
 
     /* Biodata */
-    .modal-biodata .wrapper {
-        border-radius: 15px;
-        height: 500px;
-        /* left: 66%;
-        transform: translate(-50%, -50%); */
-        font-size: 23px;
-    }
-    .modal-biodata .wrapper p{
-        margin: 0;
-    }
+  .modal-biodata .wrapper {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff1a;
+    padding: 1.5em;
+    border-radius: 25px;
+    border: 2px solid #ffffff30;
+    box-shadow: 0 0 30px #0000002a;
+    font-size: 20px;
+  }
+  .modal-biodata .wrapper p{
+      margin: 0;
+  }
+
+  /* About */
+  .modal-about .wrapper {
+    width: 700px;
+    height: 570px;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff1a;
+    padding: 1.5em 3em;
+    border-radius: 25px;
+    border: 2px solid #ffffff30;
+    box-shadow: 0 0 30px #0000002a;
+    font-size: 20px;
+  }
+  .modal-about .wrapper p{
+      margin: 0;
+  }
   
   @media screen and (max-width: 1000px) {
     .profile {
@@ -145,3 +235,168 @@
       transform: translate(11%, 0%);
     }
   }
+
+
+/* animation */
+.animation-area {
+  transition: transform 1s;
+	background: linear-gradient(to right, #2b40c7, #1f7bd6);
+	width: 100%;
+	height: 100vh;
+}
+.box-area {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.box-area li {
+	position: absolute;
+	display: block;
+	list-style: none;
+	width: 25px;
+	height: 25px;
+	background: rgba(255, 255, 255, 0.2);
+	animation: animate 10s linear infinite;
+	bottom: -150px;
+	border-radius: 50%;
+}
+
+.box-area li:nth-child(1) {
+	left: 86%;
+	width: 80px;
+	height: 80px;
+	animation-delay: 1.3s;
+}
+.box-area li:nth-child(2) {
+	left: 12%;
+	width: 30px;
+	height: 30px;
+	animation-delay: 0.7s;
+	animation-duration: 3.5s;
+}
+.box-area li:nth-child(3) {
+	left: 70%;
+	width: 100px;
+	height: 100px;
+	animation-delay: 1.5s;
+}
+.box-area li:nth-child(4) {
+	left: 57%;
+	width: 150px;
+	height: 150px;
+	animation-delay: 0.4s;
+	animation-duration: 7s;
+}
+.box-area li:nth-child(5) {
+	left: 65%;
+	width: 40px;
+	height: 40px;
+	animation-delay: 0.6s;
+}
+.box-area li:nth-child(6) {
+	left: 15%;
+	width: 110px;
+	height: 110px;
+	animation-delay: 1.4s;
+}
+.box-area li:nth-child(7) {
+	left: 70%;
+	width: 100px;
+	height: 100px;
+	animation-delay: 1.2s;
+  animation-duration: 6s;
+}
+.box-area li:nth-child(8) {
+	left: 39%;
+	width: 150px;
+	height: 150px;
+	animation-delay: 1s;
+	animation-duration: 4.5s;
+}
+.box-area li:nth-child(9) {
+	left: 46%;
+	width: 40px;
+	height: 40px;
+	animation-delay: 0.8s;
+  animation-duration: 4s;
+}
+.box-area li:nth-child(10) {
+	left: 25%;
+	width: 110px;
+	height: 110px;
+	animation-delay: 1.5s;
+  animation-duration: 3s;
+}
+.box-area li:nth-child(11) {
+	left: 82%;
+	width: 70px;
+	height: 70px;
+	animation-delay: 0s;
+	animation-duration: 5s;
+}
+.box-area li:nth-child(12) {
+	left: 62%;
+	width: 120px;
+	height: 120px;
+	animation-delay: 0.5s;
+	animation-duration: 3.5s;
+}
+.box-area li:nth-child(13) {
+	left: 72%;
+	width: 150px;
+	height: 150px;
+	animation-delay: 1s;
+	animation-duration: 4.5s;
+}
+.box-area li:nth-child(14) {
+	left: 52%;
+	width: 100px;
+	height: 100px;
+	animation-delay: 2s;
+	animation-duration: 7.5s;
+}
+.box-area li:nth-child(15) {
+	left: 42%;
+	width: 140px;
+	height: 140px;
+	animation-delay: 1.6s;
+	animation-duration: 4s;
+}
+.box-area li:nth-child(16) {
+	left: 22%;
+	width: 70px;
+	height: 70px;
+	animation-delay: 1s;
+	animation-duration: 3.5s;
+}
+@keyframes animate {
+	0% {
+		transform: translateY(0) scale(0);
+	}
+	100% {
+		transform: translateY(-1200px) scale(2);
+		opacity: 0;
+	}
+}
+
+
+.right {
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+.right .modal-biodata, .right .modal-about {
+  display: block;
+  position: absolute;
+  backface-visibility: hidden;
+  width: 100%;
+}
+.right .modal-about {
+  transform: rotateY(180deg);
+}
+
+.right.animated {
+transform: rotateY(-180deg);
+} 
