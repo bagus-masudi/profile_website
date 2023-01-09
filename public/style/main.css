@@ -15,7 +15,7 @@
   }
   .modal-login .wrapper {
     border-radius: 15px;
-    width: 450px;
+    width: 400px;
     flex-direction: column;
     background: #ffffff1a;
     padding: 1.5em 3em;
@@ -36,7 +36,7 @@
   .modal-login .wrapper form .mb-3 input {
     border: 1px solid #4e73df;
     border-radius: 5px;
-    height: 40px;
+    height: 37px;
     font-size: 16px;
     font-weight: 400;
   }
@@ -69,27 +69,27 @@
   .profile {
     z-index: 100;
     display: flex;
-    gap: 80px;
+    gap: 60px;
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
-    left: 34%;
+    left: 33%;
   }
   .btn-edit {
     display: flex;
     justify-content: center;
     margin-top: 35px;
   }
-  .btn-edit button{
+  .btn-edit button, .btn-edit a{
     font-size: 25px;
-    padding: 10px 30px;
+    padding: 7px 20px;
   }
   .modal-profile{
     text-align: center;
   }
   .modal-profile .wrapper{
-    width: 450px;
-    height: 450px;
+    width: 400px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -115,24 +115,11 @@
     margin-bottom: 10px;
     font-size: 24px;
   }
-  .btn-area a {
-    text-decoration: none;
-    color: #262626;
-    background: rgba(255, 255, 255, 0.6);
-    display: inline-block;
-    padding: 8px 15px;
-    margin: 15px 5px;
-    border: 2px solid rgba(255, 255, 255, 0.6);
-  }
-  .btn-area a.ex {
-    background: transparent;
-    color: #fff;
-  }
   .socials {
     margin-top: 20px;
     display: flex;
   }
-  .socials div {
+  .socials a {
     z-index: 100;
     width: 40px;
     height: 40px;
@@ -141,16 +128,16 @@
     color: rgb(2, 0, 0);
     margin: 0 5px;
   }
-  .socials div.a1 {
+  .socials a.a1 {
     background: #3b5998;
   }
-  .socials div.a2 {
+  .socials a.a2 {
     background: #3871c1;
   }
-  .socials div.a3 {
+  .socials a.a3 {
     background: #000000;
   }
-  .socials div.a4 {
+  .socials a.a4 {
     background: #dc4e41;
   }
   .profile-img {
@@ -167,7 +154,7 @@
 
     /* Biodata */
   .modal-biodata .wrapper {
-    width: 700px;
+    width: 600px;
     display: flex;
     flex-direction: column;
     background: #ffffff1a;
@@ -183,7 +170,7 @@
 
   /* About */
   .modal-about .wrapper {
-    width: 700px;
+    width: 600px;
     height: 570px;
     display: flex;
     flex-direction: column;

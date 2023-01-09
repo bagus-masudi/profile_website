@@ -8,27 +8,31 @@
         <div class="left">
             <div class="modal-profile">
                 <div class="wrapper shadow p-4 text-center">
-                    <div class="profile-img"><img alt="" src="{{asset('images/photo/photo.jpg')}}"></div>
+                    @if ($users->photo)
+                        <div class="profile-img"><img alt="" src="{{asset('images/photo')}}/{{$users->photo}}"></div>
+                    @else 
+                    <div class="profile-img"><img alt="" src="{{asset('images/photo/User.png')}}"></div>
+                    @endif    
                     <h2>{{$users->name}}</h2>
                     <p>{{$users->pekerjaan}}</p>
                     <div class="socials">
-                        <div class="a1">
+                        <a class="a1" href="{{$users->url_facebook}}">
                             <img src="{{asset('images/icons/facebook-f.png')}}" style="width: 16px" aria-placeholder="ssfv" alt="">
-                        </div>
-                        <div class="a2">
-                            <img src="{{asset('images/icons/linkedin-in.png')}}" style="width: 19px;" alt="">
-                        </div>
-                        <div class="a3">
-                            <img src="{{asset('images/icons/github-alt.png')}}" style="width: 20px;" alt="">
-                        </div>
-                        <div class="a4">
-                            <img src="{{asset('images/icons/google-plus-g.png')}}" style="width: 27px;" alt="">
-                        </div>
+                        </a>
+                        <a class="a2" href="{{$users->url_linkedin}}">
+                            <img src="{{asset('images/icons/linkedin-in.png')}}" style="width: 19px; margin-top: -5px;" alt="">
+                        </a>
+                        <a class="a3" href="{{$users->url_github}}">
+                            <img src="{{asset('images/icons/github-alt.png')}}" style="width: 20px; margin-top: -5px;" alt="">
+                        </a>
+                        <a class="a4" href="{{$users->url_instagram}}">
+                            <img src="{{asset('images/icons/instagram.png')}}" style="color: #fff; width: 27px; margin-top: -5px;" alt="">
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="btn-edit">
-                <button type="button" class="btn btn-primary ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-pencil"></i></button>
+                <a class="btn btn-primary ms-3" data-bs-toggle="modal" href="#exampleModalBiodata"><i class="bi bi-pencil"></i></a>
                 <form action="{{ route('delete') }}" method="POST">
                     @csrf
                     <button type="submit" class="btn btn-danger ms-3"><i class="bi bi-trash"></i></button>
@@ -86,8 +90,12 @@
                 <div class="wrapper shadow">
                     <div class="text-start" style="color: #ffffffdb">
                         <h2 class="text-center mb-4">Tentang Saya</h2>
-                        <p style="height:400px">Saya adalah entusias teknologi</p>
-                        <a class="text-warning animate" style="text-decoration: none; margin-top: 1" href="#">Back</a>
+                        @if ($users->about)
+                            <p><?php echo htmlspecialchars_decode($users->about) ?></p>
+                        @else 
+                            <p style="height:400px">Isi Tentang Diri Anda</p>
+                        @endif
+                        <a class="text-warning animate position-absolute" style="transform: translate(80%, -10%); top: 90%; left: 70%; text-decoration:none;" href="#">Back</a>
                     </div>
                 </div>
             </div>
@@ -95,7 +103,7 @@
     </div>
     @endforeach
     <!-- Modal Edit-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModalBiodata" tabindex="-1" aria-labelledby="exampleModalBiodataLabel" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -137,10 +145,101 @@
                         <label for="email">Email</label>
                         <input type="text" class="form-control" id="email" name="email" required value="{{ $users->email }}">
                     </div>
+                        <input type="text" class="form-control d-none" id="biodata" name="biodata" value="biodata">
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                <div class="modal-footer d-flex justify-content-between">
+                    <div>
+                        <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalURL">URL Sosmed</a>
+                        <a class="btn btn-primary ms-1" data-bs-toggle="modal" href="#exampleModalAbout">Tentang Saya</a>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModalAbout" tabindex="-1" aria-labelledby="exampleModalAboutLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Profile</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{route('edit')}}" method="POST" enctype="multipart/form-data">
+            @csrf
+                <div class="modal-body">
+                    <div class="form-group mt-2 mb-2">
+                        <label class="mb-2" for="name">Tentang Saya</label>
+                        <textarea name="about" id="about" cols="3" rows="2" class="form-control">
+                            <?php echo $users->about ?>
+                        </textarea>
+                    </div>
+                    <input type="text" class="form-control d-none" id="name" name="name" value="{{ $users->name }}">
+                    <input type="text" class="form-control d-none" id="username" name="username" required value="{{ $users->username }}">
+                    <input type="email" class="form-control d-none" id="email" name="email" required value="{{ $users->email }}">
+                    <input type="password" class="form-control d-none" id="password" name="password" required value="{{ $users->password }}">
+                    <input type="text" class="form-control d-none" id="myabout" name="myabout" value="about">
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <div>
+                        <a class="btn btn-primary ms-1" data-bs-toggle="modal" href="#exampleModalBiodata">Biodata</a>
+                        <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalURL">URL Sosmed</a>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModalURL" tabindex="-1" aria-labelledby="exampleModalURLLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Profile</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{route('edit')}}" method="POST" enctype="multipart/form-data">
+            @csrf
+                <div class="modal-body">
+                    <div class="form-group mt-2 mb-2">
+                        <label for="facebook">Facebook</label>
+                        <input type="text" class="form-control" id="url_facebook" name="facebook" value="{{ $users->url_facebook }}">
+                    </div>
+                    <div class="form-group mt-2 mb-2">
+                        <label for="linkedin">Linkedin</label>
+                        <input type="text" class="form-control" id="linkedin" name="linkedin" value="{{ $users->url_linkedin }}">
+                    </div>
+                    <div class="form-group mt-2 mb-2">
+                        <label for="github">Github</label>
+                        <input type="text" class="form-control" id="github" name="github" value="{{ $users->url_github }}">
+                    </div>
+                    <div class="form-group mt-2 mb-2">
+                        <label for="instagram">Instagram</label>
+                        <input type="text" class="form-control" id="instagram" name="instagram" value="{{ $users->url_instagram }}">
+                    </div>
+                    <input type="text" class="form-control d-none" id="name" name="name" value="{{ $users->name }}">
+                    <input type="text" class="form-control d-none" id="username" name="username" required value="{{ $users->username }}">
+                    <input type="email" class="form-control d-none" id="email" name="email" required value="{{ $users->email }}">
+                    <input type="password" class="form-control d-none" id="password" name="password" required value="{{ $users->password }}">
+                    <input type="text" class="form-control d-none" id="url_sosmed" name="url_sosmed" value="url_sosmed">
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <div>
+                        <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalAbout">Tentang Saya</a>
+                        <a class="btn btn-primary ms-1" data-bs-toggle="modal" href="#exampleModalBiodata">Biodata</a>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
                 </div>
             </form>
         </div>
@@ -148,6 +247,14 @@
     </div>
 </div>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+<script src="https://cdn.ckeditor.com/ckeditor5/35.4.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#about' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 <script>
 $(document).ready(function(){
 	$('.animate').click(function(){

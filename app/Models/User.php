@@ -26,7 +26,12 @@ class User extends Authenticatable
         'alamat',
         'email',
         'password',
-        'photo'
+        'photo',
+        'url_facebook',
+        'url_linkedin',
+        'url_github',
+        'url_google',
+        'about'
     ];
 
     /**

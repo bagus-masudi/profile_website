@@ -25,6 +25,11 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('photo')->nullable();
+            $table->string('url_facebook')->nullable();
+            $table->string('url_linkedin')->nullable();
+            $table->string('url_github')->nullable();
+            $table->string('url_instagram')->nullable();
+            $table->text('about')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
